@@ -1,0 +1,109 @@
+Author: Jay Zawrotny
+Email: JayZawrotny@gmail.com
+Website: jayzawrotny.com
+
+-----------------------------------------------
+*** Table of Contents *************************
+-----------------------------------------------
+1.) License
+2.) To-do Items
+3.) Setup
+4.) Examples
+5.) Notes
+6.) Contacting the Author
+
+1.) License 
+------------------------------------------------
+You may do whatever you want to do with this system. Fork it, rewrite it, publish it. Include it into your own framework package that's fine. All I ask is I get some credit when necessary.
+
+2.) Todo
+------------------------------------------------
+Clean up comments
+Elements like the UL, Div, and OL are redundant and can be expressed with the generic element tag.
+
+3.) Setup
+------------------------------------------------
+Download, extract the html_builder folder somwhere within your project files.
+Include the abstracthtml master file.
+<?php include 'html_builder/abstracthtml.class.php' ?>
+That's it!
+
+4.) Usage
+------------------------------------------------
+
+4-1.) Creating an element with content, and
+      attributes.
+------------------------------------------------
+<?php $div = HTML::tag( 'div', 'Hello World', array( 'class' => 'hello-world' ) ); ?>
+<?php echo $div; ?>
+\\Output: <div class="hello-world">Hello World!</div>
+
+4.2) Creating an elment and adding in content 
+     and specific attributes after creation.
+------------------------------------------------
+<?php 
+$div = HTML::tag( 'div' );
+$div->class = "hello-world";
+$div->insert( "Hello World!" );
+
+echo $div;
+//Output: <div class="hello-world">Hello World!</div>
+?>
+
+4.3) Chaining Elements
+------------------------------------------------
+<?php
+$div = HTML::tag( 'div', HTML::tag( 'span', 'Test' ), array( 'class' => 'test-class' ) );
+
+echo $div;
+//Output: <div class="test-class'><span>Test</span></div>
+?>
+
+4.4) Attributes Array Property
+------------------------------------------------
+<?php
+$div = HTML::tag( 'div' );
+$div->attributes = array(
+     'class' => 'class-name',
+	 'id' => 'div-id',
+	 'title' => 'My Favorite Div!'
+);
+
+echo $div;
+//Output: <div class="class-name" id="div-id" title="My Favorite Div!"></div>
+?>
+
+4.5) Insert Multiple Elements
+------------------------------------------------
+<?php
+$h1 = HTML::tag( 'h1', 'My H1 Title' );
+$ul = HMTL::tag( 'ul' );
+$ul->insert( array(
+	HTML::tag( 'li', 'List Item 1' ),
+	HTML::tag( 'li', 'List Item 2' ),
+	HTML::tag( 'li', 'List Item 3' ),
+) );
+
+$a = HTML::tag( 'a', 'Click here for more info &raquo;', array( 'href' => '#click-here-for-more-info' ) );
+$div = HTML::tag( 'div', array( $h1, $ul, $a ), array( 'class' => 'container' ) );
+
+echo $div;
+//Output: <div class="container"><h1>My H1 Title</h1><ul><li>List Item 1</li><li>List Item 2</li><li>List Item 3</li></ul><a href="#click-here-for-more-info">Click here for more info &raquo;</a>
+?>
+
+5.) Notes
+-----------------------------------------------
+Anytime where you can insert an element, you can use an array with elements or text in it.
+If the element is not found, it will use a generic element with whatever name you get it with a context of <tag>Content</tag> and of course the attributes in the proper place.
+
+6.) Contact the Author
+-----------------------------------------------
+Email: Jayzawrotny@gmail.com
+Web: jayzawrotny.com
+G+: jayzawrotny@gmail.com
+Forrst: forrst.me/JayZawrotny
+Dribbble: dribbble.com/JayZawrotny
+Twitter: @jaybydesign
+Skype: JayByDesign
+Phone: Yeah right! ( Sorry ladies :( )
+
