@@ -14,12 +14,13 @@ Website: jayzawrotny.com
 
 1.) License 
 ------------------------------------------------
-You may do whatever you want to do with this system. Fork it, rewrite it, publish it. Include it into your own framework package that's fine. All I ask is I get some credit when necessary.
+You may do whatever you want to do with this system. Fork it, rewrite it, publish it. Include it into your own framework package that's fine. All I ask is I get some credit when necessary or even a tweet mention :P
 
 2.) Todo
 ------------------------------------------------
 Clean up comments
 Elements like the UL, Div, and OL are redundant and can be expressed with the generic element tag.
+As of now it doesn't add in line breaks though I did attempt to add support for them just never really needed it.
 
 3.) Setup
 ------------------------------------------------
@@ -88,7 +89,7 @@ $a = HTML::tag( 'a', 'Click here for more info &raquo;', array( 'href' => '#clic
 $div = HTML::tag( 'div', array( $h1, $ul, $a ), array( 'class' => 'container' ) );
 
 echo $div;
-//Output: <div class="container"><h1>My H1 Title</h1><ul><li>List Item 1</li><li>List Item 2</li><li>List Item 3</li></ul><a href="#click-here-for-more-info">Click here for more info &raquo;</a>
+//Output: <div class="container"><h1>My H1 Title</h1><ul><li>List Item 1</li><li>List Item 2</li><li>List Item 3</li></ul><a href="#click-here-for-more-info">Click here for more info &raquo;</a></div>
 ?>
 
 5.) Notes
